@@ -1,26 +1,29 @@
 {
-    "name": "framework/support",
-    "description": "Description...",
-    "version": "0.1.0",
+    "name": "solid-framework/support",
+    "description": "A module for the Solid Framework adding various support/utility classes.",
     "type": "library",
     "license": "MIT",
     "keywords": [
+        "solid",
         "framework",
-        "support"
+        "support",
+        "php",
+        "modular",
+        "module"
     ],
     "authors": [
         {
             "name": "Martin Pettersson",
-            "email": "martin@framework.com",
+            "email": "martin@solid-framework.com",
             "role": "Developer"
         }
     ],
-    "homepage": "http://framework.com",
+    "homepage": "http://solid-framework.com",
     "support": {
         "email": "support@framework.com",
-        "issues": "https://github.com/framework/support/issues",
-        "source": "https://github.com/framework/support",
-        "docs": "http://docs.framework.com"
+        "issues": "https://github.com/solid-framework/support/issues",
+        "source": "https://github.com/solid-framework/support",
+        "docs": "http://docs.solid-framework.com"
     },
     "scripts": {
         "test": "phpunit",
@@ -28,7 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Framework\\Support\\": "src"
+            "Solid\\Support\\": "src"
         }
     },
     "prefer-stable": true,

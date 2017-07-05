@@ -7,11 +7,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Framework\Support;
+namespace Solid\Support;
 
 /**
- * @package Framework\Support
- * @author Martin Pettersson <martin@framework.com>
+ * @package Solid\Support
+ * @author Martin Pettersson <martin@solid-framework.com>
  * @since 0.1.0
  */
 class Arr

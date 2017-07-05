@@ -7,16 +7,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Framework\Support\Tests;
+namespace Solid\Support\Tests;
 
-use Framework\Support\Arr;
+use Solid\Support\Arr;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @package Framework\Support\Tests
- * @author Martin Pettersson <martin@framework.com>
+ * @package Solid\Support\Tests
+ * @author Martin Pettersson <martin@solid-framework.com>
  * @since 0.1.0
- * @coversDefaultClass Framework\Support\Arr
+ * @coversDefaultClass Solid\Support\Arr
  */
 class ArrTest extends TestCase
 {
