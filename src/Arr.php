@@ -12,13 +12,10 @@ namespace Solid\Support;
 /**
  * @package Solid\Support
  * @author Martin Pettersson <martin@solid-framework.com>
- * @since 0.1.0
  */
 class Arr
 {
     /**
-     * @api
-     * @since 0.1.0
      * @param mixed $item
      * @return bool
      */
@@ -28,8 +25,6 @@ class Arr
     }
 
     /**
-     * @api
-     * @since 0.1.0
      * @param array $a
      * @param array $b
      * @param bool  $mergeIndexed
