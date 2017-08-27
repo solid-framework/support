@@ -22,29 +22,58 @@ class EnvTest extends TestCase
 {
     use PHPMock;
 
-    /**
-     * @test
-     * @covers ::isCli
-     */
-    public function isCliShouldReturnTrueIfSapiBeginsWithCli(): void
-    {
-        $phpSapiName = $this->getFunctionMock('Solid\Support', 'php_sapi_name');
-        $phpSapiName->expects($this->once())
-                    ->willReturn('cli-server');
+    protected $server;
 
-        $this->assertTrue(Env::isCli());
+    /**
+     * @param null   $name
+     * @param array  $data
+     * @param string $dataName
+     */
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+
+        $this->server = $_SERVER;
+    }
+
+    /**
+     * @before
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        global $_SERVER;
+
+        $_SERVER = $this->server;
     }
 
     /**
      * @test
      * @covers ::isCli
      */
-    public function isCliShouldReturnFalseIfSapiDoesNotBeginWithCli(): void
+    public function shouldDetermineIfCli(): void
     {
+        global $_SERVER;
+
+        unset($_SERVER['SERVER_NAME']);
         $phpSapiName = $this->getFunctionMock('Solid\Support', 'php_sapi_name');
-        $phpSapiName->expects($this->once())
+        $phpSapiName->expects($this->exactly(3))
+                    ->willReturnOnConsecutiveCalls('cli-server', 'cli-server', 'fpm-cli');
+
+        // True if SAPI begins with "cli" and no server name is present.
+        $this->assertTrue(Env::isCli());
+
+        $_SERVER['SERVER_NAME'] = 'server-name';
+
+        // False if server name is present.
+        $this->assertFalse(Env::isCli());
+
+        unset($_SERVER['SERVER_NAME']);
+        $phpSapiName->expects($this->atLeastOnce())
                     ->willReturn('fpm-cli');
 
+        // False if SAPI does NOT begin with "cli".
         $this->assertFalse(Env::isCli());
     }
 }

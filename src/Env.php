@@ -20,6 +20,6 @@ class Env
      */
     public static function isCli(): bool
     {
-        return strpos(php_sapi_name(), 'cli') === 0;
+        return strpos(php_sapi_name(), 'cli') === 0 && !isset($_SERVER['SERVER_NAME']);
     }
 }
